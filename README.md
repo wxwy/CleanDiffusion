@@ -130,6 +130,12 @@ v_target = x0 - x1
 - `docs/00_diffusion_learning_map.md`：DDPM / FM / RF / Consistency / CFM / DMD 的学习顺序和概念关系。
 - `docs/01_experiment_matrix.md`：最小 smoke test、采样器对比、CFG 对比和失败模式记录模板。
 - `docs/02_ddpm_parameterizations.md`：epsilon / x0 / v / score 四种 DDPM 参数化的公式关系。
+- `docs/03_sampler_comparison.md`：DDPM / DDIM / Euler / Heun / DPM-Solver-lite 的教学对比。
+- `docs/04_noise_and_time_schedules.md`：DDPM noise schedule 与 flow time schedule 的区别。
+- `docs/05_model_conditioning_notes.md`：UNet、time embedding、text conditioning、CFG、attention 的阅读笔记。
+- `docs/06_latent_diffusion_teaching_plan.md`：latent diffusion 教学版本的实现计划。
+- `docs/07_evaluation_notes.md`：FID、CLIP score、precision/recall 和人工检查表。
+- `docs/08_failure_case_log.md`：失败样例记录模板和常见定位清单。
 - `clean_diffusion/toy_fm_2d.py`：二维 Flow Matching toy，用可视化方式理解 `x_t`、velocity 和 Euler sampler。
 - `clean_diffusion/toy_ddpm_parameterizations.py`：DDPM 参数化转换的可执行公式校验。
 

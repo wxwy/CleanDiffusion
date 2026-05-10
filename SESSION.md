@@ -58,6 +58,13 @@
 - `clean_diffusion/toy_ddpm_parameterizations.py` 是最小可执行公式校验脚本，不训练模型，只用随机张量验证四种参数化可互相转换。
 - 完成 `toy_ddpm_parameterizations.py` 静态检查：`python -m py_compile clean_diffusion/toy_ddpm_parameterizations.py` 通过。
 - 完成 `toy_ddpm_parameterizations.py` 运行验证：epsilon/x0/v/score 转换最大误差均小于 `1e-5`，输出 `all DDPM parameterization conversions passed`。
+- 补齐系统学习文档剩余规划：`docs/03_sampler_comparison.md`、`docs/04_noise_and_time_schedules.md`、`docs/05_model_conditioning_notes.md`、`docs/06_latent_diffusion_teaching_plan.md`、`docs/07_evaluation_notes.md`、`docs/08_failure_case_log.md`。
+- `docs/03_sampler_comparison.md` 对比 DDPM、DDIM、Euler、RF Euler、Heun、DPM-Solver-lite 的适用 objective、数值含义和实验记录方式。
+- `docs/04_noise_and_time_schedules.md` 解释 DDPM noise schedule、timestep sampling、SNR、Flow Matching time schedule 以及 DDPM timestep 和 FM time 的方向差异。
+- `docs/05_model_conditioning_notes.md` 记录 UNet、time embedding、text conditioning、CFG、attention 和结构对比实验建议。
+- `docs/06_latent_diffusion_teaching_plan.md` 规划未来 `latent_ddpm.py` 教学版本：autoencoder、latent DDPM objective、latent sampler、metadata 和 smoke test 要求。
+- `docs/07_evaluation_notes.md` 记录 loss、FID、CLIP score、precision/recall、人工检查表和采样成本记录方式。
+- `docs/08_failure_case_log.md` 提供失败样例记录模板，并列出发灰、FM/RF 发散、Consistency 过平滑、CFG 崩坏、DMD student 坍缩等定位清单。
 
 ## 下次会话入口
 

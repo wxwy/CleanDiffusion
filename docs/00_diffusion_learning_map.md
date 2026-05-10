@@ -173,3 +173,24 @@ clean_diffusion/dmd2.py
 - 失败样例和失败原因。
 
 如果只看最终图片，很难理解 diffusion；如果同时看路径、速度、loss、采样步数和失败模式，学习效率会高很多。
+
+## 9. 补充主题索引
+
+完成上面的主线后，按下面顺序补齐系统视角：
+
+```text
+docs/03_sampler_comparison.md
+docs/04_noise_and_time_schedules.md
+docs/05_model_conditioning_notes.md
+docs/06_latent_diffusion_teaching_plan.md
+docs/07_evaluation_notes.md
+docs/08_failure_case_log.md
+```
+
+推荐阅读顺序：
+
+1. 先读 sampler，对比“模型预测”和“数值更新”是两件事。
+2. 再读 schedule，理解时间坐标和噪声强度如何影响训练。
+3. 再读模型结构，确认 UNet / time embedding / conditioning 在数据流中的位置。
+4. 再读 latent diffusion，理解为什么工业图像生成常在 latent 空间做。
+5. 最后读 evaluation 和 failure case，把实验记录从“看图”升级成可复现研究。
