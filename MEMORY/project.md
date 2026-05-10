@@ -57,6 +57,9 @@
 - 已新增 `clean_diffusion/fm.py` 单文件 Flow Matching baseline，使用统一约定 `x0=data`、`x1=noise`、`t=0->noise`、`t=1->data`、`v_target=x0-x1`。
 - `clean_diffusion/fm.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 4 step Euler 采样 smoke test。
 - `fm_smoke` 验证产物：`checkpoints/fm_smoke/step=000000002`、`checkpoints/fm_smoke/metrics.jsonl`、TensorBoard events、`samples/fm_smoke/euler_cfg3.0_steps4_000_a_small_red_car.png`。
+- 已新增 `clean_diffusion/rectified_flow.py` 单文件 Rectified Flow baseline，第一版复用 FM 直线路径速度场目标，并保留独立 `rf_euler` 采样入口。
+- `clean_diffusion/rectified_flow.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 4 step RF Euler 采样 smoke test。
+- `rf_smoke` 验证产物：`checkpoints/rf_smoke/step=000000002`、`checkpoints/rf_smoke/metrics.jsonl`、TensorBoard events、`samples/rf_smoke/rf_euler_cfg3.0_steps4_000_a_small_red_car.png`。
 
 ## 工程约束
 

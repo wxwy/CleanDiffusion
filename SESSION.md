@@ -24,6 +24,10 @@
 - 完成 `fm_smoke` 1 step 训练：`image_size=32`、`batch_size=2`、`base_channels=16`、`channel_mults=1,2,4`、`--no-amp`，step 1 loss 为 `1.3920`，checkpoint 保存到 `checkpoints/fm_smoke/step=000000001`。
 - 完成 `fm_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.2235`。
 - 完成 FM Euler 低步数采样验证：加载 `checkpoints/fm_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/fm_smoke/euler_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
+- 新增 `clean_diffusion/rectified_flow.py` 单文件 Rectified Flow baseline：第一版与 FM 使用相同直线路径速度场 loss，保留独立 `rectified_flow` objective 记录和 `rf_euler` 采样入口，后续可扩展 reflow / straightening。
+- 完成 `rf_smoke` 1 step 训练：step 1 loss 为 `1.3920`，checkpoint 保存到 `checkpoints/rf_smoke/step=000000001`。
+- 完成 `rf_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.2235`。
+- 完成 RF Euler 低步数采样验证：加载 `checkpoints/rf_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/rf_smoke/rf_euler_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
 
 ## 下次会话入口
 
