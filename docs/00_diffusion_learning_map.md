@@ -51,6 +51,8 @@ python clean_diffusion/toy_fm_2d.py sample --ckpt outputs/toy_fm_2d_smoke/last.p
 
 ```text
 clean_diffusion/ddpm.py
+docs/02_ddpm_parameterizations.md
+clean_diffusion/toy_ddpm_parameterizations.py
 ```
 
 学习重点：
@@ -58,6 +60,7 @@ clean_diffusion/ddpm.py
 - forward process：把图像逐步加噪。
 - reverse process：模型预测噪声并逐步去噪。
 - objective：`MSE(noise_pred, noise)`。
+- parameterization：epsilon / x0 / v / score 可以在同一个加噪公式下互相转换。
 - sampler：DDPM 随机采样和 DDIM 确定性采样。
 - CFG：条件预测和无条件预测的线性外推。
 
@@ -66,6 +69,14 @@ clean_diffusion/ddpm.py
 1. beta / alpha schedule。
 2. DDPM objective。
 3. DDPM / DDIM sampler。
+
+然后运行：
+
+```bash
+python clean_diffusion/toy_ddpm_parameterizations.py
+```
+
+确认模型输出为 epsilon、x0、v 或 score 时，如何统一换回 sampler 需要的 `eps_hat` / `x0_hat`。
 
 ## 3. Flow Matching：从路径和速度理解生成
 

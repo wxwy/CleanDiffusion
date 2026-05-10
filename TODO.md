@@ -34,7 +34,7 @@
 - [x] 新增 diffusion 系统学习地图：`docs/00_diffusion_learning_map.md`。
 - [x] 新增教学实验矩阵：`docs/01_experiment_matrix.md`。
 - [x] 新增二维 Flow Matching toy：`clean_diffusion/toy_fm_2d.py`。
-- [ ] 补充 DDPM 参数化对比：epsilon / x0 / v / score。
+- [x] 补充 DDPM 参数化对比：epsilon / x0 / v / score。
 - [ ] 补充 sampler 对比笔记：DDPM / DDIM / Euler / Heun / DPM-Solver-lite。
 - [ ] 补充 noise schedule 与 time schedule 教学笔记。
 - [ ] 补充模型结构笔记：UNet、time embedding、attention、conditioning。

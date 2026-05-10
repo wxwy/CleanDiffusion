@@ -129,7 +129,9 @@ v_target = x0 - x1
 
 - `docs/00_diffusion_learning_map.md`：DDPM / FM / RF / Consistency / CFM / DMD 的学习顺序和概念关系。
 - `docs/01_experiment_matrix.md`：最小 smoke test、采样器对比、CFG 对比和失败模式记录模板。
+- `docs/02_ddpm_parameterizations.md`：epsilon / x0 / v / score 四种 DDPM 参数化的公式关系。
 - `clean_diffusion/toy_fm_2d.py`：二维 Flow Matching toy，用可视化方式理解 `x_t`、velocity 和 Euler sampler。
+- `clean_diffusion/toy_ddpm_parameterizations.py`：DDPM 参数化转换的可执行公式校验。
 
 2D toy 运行示例：
 
@@ -142,4 +144,10 @@ python clean_diffusion/toy_fm_2d.py train \
 python clean_diffusion/toy_fm_2d.py sample \
   --ckpt outputs/toy_fm_2d_smoke/last.pt \
   --steps 32
+```
+
+DDPM 参数化校验：
+
+```bash
+python clean_diffusion/toy_ddpm_parameterizations.py
 ```

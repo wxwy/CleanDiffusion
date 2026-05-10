@@ -53,6 +53,11 @@
 - 完成 `toy_fm_2d_smoke` 训练验证：`max_steps=2`、`batch_size=64`、`hidden_dim=32`、`depth=2`，step 1 loss 为 `2.493605`，step 2 loss 为 `2.739242`。
 - 完成 `toy_fm_2d_smoke` resume 验证：从 `outputs/toy_fm_2d_smoke/last.pt` 恢复到 step 3，step 3 loss 为 `2.468290`。
 - 完成 `toy_fm_2d.py` sample 验证：加载 `outputs/toy_fm_2d_smoke/last.pt`，`steps=4`、`num_points=128`，输出保存到 `outputs/toy_fm_2d_smoke/sample_check`。
+- 新增 DDPM 参数化学习补充：`docs/02_ddpm_parameterizations.md` 和 `clean_diffusion/toy_ddpm_parameterizations.py`。
+- `docs/02_ddpm_parameterizations.md` 解释 epsilon prediction、x0 prediction、v prediction、score prediction 在 DDPM 加噪公式下的转换关系。
+- `clean_diffusion/toy_ddpm_parameterizations.py` 是最小可执行公式校验脚本，不训练模型，只用随机张量验证四种参数化可互相转换。
+- 完成 `toy_ddpm_parameterizations.py` 静态检查：`python -m py_compile clean_diffusion/toy_ddpm_parameterizations.py` 通过。
+- 完成 `toy_ddpm_parameterizations.py` 运行验证：epsilon/x0/v/score 转换最大误差均小于 `1e-5`，输出 `all DDPM parameterization conversions passed`。
 
 ## 下次会话入口
 

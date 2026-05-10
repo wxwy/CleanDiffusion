@@ -75,6 +75,7 @@
 - 当前规划的阶段 0 到阶段 6 已完成单文件实现和 smoke test。
 - 已新增系统学习补充第一批内容：`docs/00_diffusion_learning_map.md`、`docs/01_experiment_matrix.md`、`clean_diffusion/toy_fm_2d.py`。
 - `toy_fm_2d.py` 用二维 mixture 数据展示 Flow Matching 的统一路径、速度目标和 Euler sampler，作为学习图像版 `fm.py` 前的可视化入口。
+- 已新增 DDPM 参数化学习补充：`docs/02_ddpm_parameterizations.md` 与 `clean_diffusion/toy_ddpm_parameterizations.py`，用于解释并校验 epsilon / x0 / v / score 的转换关系。
 
 ## 工程约束
 
