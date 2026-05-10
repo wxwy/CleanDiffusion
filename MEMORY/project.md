@@ -54,6 +54,9 @@
 - `clean_diffusion/ddpm.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和低步数 DDIM 采样 smoke test。
 - DDPM smoke test 使用现有 CFM 环境运行，首次 Torch 导入约 30 秒以上属正常环境开销。
 - `ddpm_smoke` 验证产物：`checkpoints/ddpm_smoke/step=000000002`、`checkpoints/ddpm_smoke/metrics.jsonl`、TensorBoard events、`samples/ddpm_smoke/ddim_cfg3.0_steps4_000_a_small_red_car.png`。
+- 已新增 `clean_diffusion/fm.py` 单文件 Flow Matching baseline，使用统一约定 `x0=data`、`x1=noise`、`t=0->noise`、`t=1->data`、`v_target=x0-x1`。
+- `clean_diffusion/fm.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 4 step Euler 采样 smoke test。
+- `fm_smoke` 验证产物：`checkpoints/fm_smoke/step=000000002`、`checkpoints/fm_smoke/metrics.jsonl`、TensorBoard events、`samples/fm_smoke/euler_cfg3.0_steps4_000_a_small_red_car.png`。
 
 ## 工程约束
 

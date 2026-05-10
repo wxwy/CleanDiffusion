@@ -20,6 +20,10 @@
 - 完成 `ddpm_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.0853`。
 - 完成 DDIM 低步数采样验证：加载 `checkpoints/ddpm_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/ddpm_smoke/ddim_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
 - 已确认 `checkpoints/ddpm_smoke/metrics.jsonl`、TensorBoard events、checkpoint `metadata.json` 均落盘。
+- 新增 `clean_diffusion/fm.py` 单文件 Flow Matching baseline：保持同一 COCO+CLIP 数据和 text-conditioned UNet，核心算法为 `x0=data`、`x1=noise`、`x_t=(1-t)*x1+t*x0`、`v_target=x0-x1`，采样使用 Euler ODE 从 noise 积分到 data。
+- 完成 `fm_smoke` 1 step 训练：`image_size=32`、`batch_size=2`、`base_channels=16`、`channel_mults=1,2,4`、`--no-amp`，step 1 loss 为 `1.3920`，checkpoint 保存到 `checkpoints/fm_smoke/step=000000001`。
+- 完成 `fm_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.2235`。
+- 完成 FM Euler 低步数采样验证：加载 `checkpoints/fm_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/fm_smoke/euler_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
 
 ## 下次会话入口
 

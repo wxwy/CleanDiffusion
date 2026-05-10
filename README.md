@@ -112,3 +112,8 @@ v_target = x0 - x1
 - checkpoint metadata
 
 完成阶段 0 前，不进入 FM / CFM / DMD。
+
+## 当前进展
+
+- `clean_diffusion/ddpm.py`：已完成 DDPM + DDIM + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
+- `clean_diffusion/fm.py`：已完成 Flow Matching + Euler + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
