@@ -66,6 +66,9 @@
 - 已新增 `clean_diffusion/cfm.py` 单文件 Consistency Flow Matching baseline，模型主输出为 velocity，并通过 velocity 推导 endpoint 做 consistency。
 - `clean_diffusion/cfm.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 4 step CFM Euler 采样 smoke test。
 - `cfm_smoke` 验证产物：`checkpoints/cfm_smoke/step=000000002`、`checkpoints/cfm_smoke/metrics.jsonl`、TensorBoard events、`samples/cfm_smoke/cfm_cfg3.0_steps4_000_a_small_red_car.png`。
+- 已新增 `clean_diffusion/dmd_lite.py` 单文件 DMD-lite baseline，student 一步学习已有 CFM teacher 的生成 endpoint，不包含 adversarial distribution matching。
+- `clean_diffusion/dmd_lite.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 one-step 采样 smoke test。
+- `dmd_lite_smoke` 验证产物：`checkpoints/dmd_lite_smoke/step=000000002`、`checkpoints/dmd_lite_smoke/metrics.jsonl`、TensorBoard events、`samples/dmd_lite_smoke/dmd_lite_cfg3.0_steps1_000_a_small_red_car.png`。
 
 ## 工程约束
 

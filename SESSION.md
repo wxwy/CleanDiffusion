@@ -36,6 +36,10 @@
 - 完成 `cfm_smoke` 1 step 训练：step 1 loss 为 `1.4079`，checkpoint 保存到 `checkpoints/cfm_smoke/step=000000001`。
 - 完成 `cfm_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.2961`。
 - 完成 CFM Euler 低步数采样验证：加载 `checkpoints/cfm_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/cfm_smoke/cfm_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
+- 新增 `clean_diffusion/dmd_lite.py` 单文件 DMD-lite baseline：student 从 Gaussian noise 一步预测 endpoint，target 来自已有 FM/RF/CFM teacher checkpoint 的多步 Euler 生成结果；当前不实现 adversarial distribution matching。
+- 使用 `checkpoints/cfm_smoke` 作为 teacher 完成 `dmd_lite_smoke` 1 step 训练：step 1 loss 为 `1.0049`，checkpoint 保存到 `checkpoints/dmd_lite_smoke/step=000000001`。
+- 完成 `dmd_lite_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 teacher EMA、student optimizer、AMP scaler、student EMA，step 2 loss 为 `1.0234`。
+- 完成 DMD-lite one-step 采样验证：加载 `checkpoints/dmd_lite_smoke/step=000000002` EMA，`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/dmd_lite_smoke/dmd_lite_cfg3.0_steps1_000_a_small_red_car.png`，尺寸为 `32x32`。
 
 ## 下次会话入口
 

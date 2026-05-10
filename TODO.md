@@ -26,7 +26,7 @@
 - [x] 阶段 2：`clean_diffusion/rectified_flow.py`。
 - [x] 阶段 3：`clean_diffusion/consistency.py`。
 - [x] 阶段 4：`clean_diffusion/cfm.py`。
-- [ ] 阶段 5：`clean_diffusion/dmd_lite.py`。
+- [x] 阶段 5：`clean_diffusion/dmd_lite.py`。
 - [ ] 阶段 6：DMD2-style experiments。
 
 ## 组织约束
