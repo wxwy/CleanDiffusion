@@ -4,11 +4,11 @@
 
 ## 项目定位
 
-CleanDiffusion 是一个 research-friendly 的 diffusion / flow / consistency 图像生成框架，目标是像 CleanRL 一样用尽量清晰的单文件算法组织方式支持 objective-driven experiments。
+CleanDiffusion 是一个面向教学学习的 diffusion / flow / consistency 图像生成代码库。项目目标是像 CleanRL 一样，让每个算法都以一个端到端 `.py` 文件呈现，便于阅读、修改、实验和课堂讲解。
 
 ## 当前阶段
 
-当前为项目初始化阶段，仅创建项目架构和配套协作文件。不要直接实现 FM / CFM / DMD。
+当前为项目初始化阶段，仅保留配套协作文件和项目说明。`clean_diffusion/` 下不预设深层包结构，后续按 `clean_diffusion/ddpm.py`、`clean_diffusion/fm.py` 这类单文件算法逐步加入。不要直接实现 FM / CFM / DMD。
 
 ## 工作方式
 
@@ -20,7 +20,11 @@ CleanDiffusion 是一个 research-friendly 的 diffusion / flow / consistency �
 
 ## 设计边界
 
-- 允许少量代码重复，换取算法清晰度。
+- 每个端到端算法优先单文件完成。
+- 单文件内必须突出算法相关代码和端到端流程，阅读顺序要连贯。
+- objective、sampler、CFG、训练主循环应成为文件主线，工程辅助函数不能淹没算法。
+- 允许少量代码重复，换取算法清晰度和教学可读性。
 - 不引入复杂 registry。
 - 不做企业级训练框架。
-- 每个 objective / sampler 尽量单文件、易读、易改。
+- 不默认拆成 `objectives/`、`samplers/`、`training/` 等深层模块。
+- 必要共享工具最多放入很薄的 `clean_diffusion/common.py`。

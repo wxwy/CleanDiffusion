@@ -5,9 +5,13 @@
 - 项目名：CleanDiffusion。
 - 项目路径：CleanDiffusion 仓库根目录。
 - 参考项目：本地 CFM 原型项目。
-- 目标：将本地 CFM 原型改造成类似 CleanRL 的图像生成研究框架。
-- 风格：single-file algorithm clarity、objective-driven research、最小必要 abstraction、易读易改易实验。
+- 目标：将本地 CFM 原型改造成类似 CleanRL 的教学学习型图像生成代码库。
+- 风格：端到端单文件算法、objective-driven research、最小必要 abstraction、易读易改易实验。
 - 环境：优先复用现有 Python / CUDA 环境，不主动新建环境。
+- 最重要组织原则：每个算法用一个 `.py` 文件完成端到端实现，例如 `clean_diffusion/ddpm.py`、`clean_diffusion/fm.py`。
+- 单文件不是简单合并代码，必须突出算法相关部分和端到端流程，阅读时从数学目标、objective、sampler 到训练/采样主流程保持连贯。
+- checkpoint、日志、路径等工程辅助代码应短小透明，不能淹没算法主线。
+- 不默认使用 `objectives/`、`samplers/`、`training/`、`models/` 等深层包结构；只有必要共享工具才放入很薄的 `clean_diffusion/common.py`。
 
 ## 研究目标
 
@@ -27,7 +31,6 @@
 
 - same model
 - same dataset
-- same training loop
 - same logging
 - only change objective and sampler
 
@@ -45,15 +48,18 @@
 ## 当前状态
 
 - 当前为项目初始化阶段。
-- 已创建项目架构和协作文件。
-- 尚未迁移或实现训练、采样、模型、checkpoint 代码。
-- 下一阶段应先做 DDPM baseline 和 `--objective ddpm` 参数化。
+- 已创建协作文件和项目记忆。
+- 用户已删除 `clean_diffusion/` 内原有包骨架，后续不要恢复深层包结构。
+- 已新增 `clean_diffusion/ddpm.py` 单文件 DDPM baseline，代码内包含训练、采样、模型、DDPM objective、DDPM/DDIM sampler、CFG、checkpoint 和日志。
+- `clean_diffusion/ddpm.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和低步数 DDIM 采样 smoke test。
+- DDPM smoke test 使用现有 CFM 环境运行，首次 Torch 导入约 30 秒以上属正常环境开销。
+- `ddpm_smoke` 验证产物：`checkpoints/ddpm_smoke/step=000000002`、`checkpoints/ddpm_smoke/metrics.jsonl`、TensorBoard events、`samples/ddpm_smoke/ddim_cfg3.0_steps4_000_a_small_red_car.png`。
 
 ## 工程约束
 
 - 不写巨型抽象框架。
 - 不引入复杂 registry。
 - 不写过深 inheritance。
-- 每次只做一个 objective。
-- 所有新增 objective 必须覆盖 train、sample、save、resume 和 smoke test。
+- 每次只做一个端到端算法文件。
+- 所有新增算法文件必须覆盖 train、sample、save、resume 和 smoke test。
 - 不允许破坏 DDPM baseline。

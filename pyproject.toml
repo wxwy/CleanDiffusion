@@ -1,7 +1,7 @@
 [project]
 name = "clean-diffusion"
 version = "0.1.0"
-description = "CleanRL-style research framework for diffusion, flow, and consistency image generation"
+description = "CleanRL-style single-file teaching code for diffusion, flow, and consistency image generation"
 requires-python = "==3.11.*"
 dependencies = [
     "numpy",
