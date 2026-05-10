@@ -63,6 +63,9 @@
 - 已新增 `clean_diffusion/consistency.py` 单文件 teacher-free consistency baseline，模型直接预测 endpoint `x0_hat`，EMA 仅作为当前模型滑动平均 target network。
 - `clean_diffusion/consistency.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 one-step consistency 采样 smoke test。
 - `consistency_smoke` 验证产物：`checkpoints/consistency_smoke/step=000000002`、`checkpoints/consistency_smoke/metrics.jsonl`、TensorBoard events、`samples/consistency_smoke/consistency_cfg3.0_steps1_000_a_small_red_car.png`。
+- 已新增 `clean_diffusion/cfm.py` 单文件 Consistency Flow Matching baseline，模型主输出为 velocity，并通过 velocity 推导 endpoint 做 consistency。
+- `clean_diffusion/cfm.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 4 step CFM Euler 采样 smoke test。
+- `cfm_smoke` 验证产物：`checkpoints/cfm_smoke/step=000000002`、`checkpoints/cfm_smoke/metrics.jsonl`、TensorBoard events、`samples/cfm_smoke/cfm_cfg3.0_steps4_000_a_small_red_car.png`。
 
 ## 工程约束
 

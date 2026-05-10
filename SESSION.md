@@ -32,6 +32,10 @@
 - 完成 `consistency_smoke` 1 step 训练：step 1 loss 为 `0.4633`，checkpoint 保存到 `checkpoints/consistency_smoke/step=000000001`。
 - 完成 `consistency_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `0.4024`。
 - 完成 consistency one-step 采样验证：加载 `checkpoints/consistency_smoke/step=000000002` EMA，`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/consistency_smoke/consistency_cfg3.0_steps1_000_a_small_red_car.png`，尺寸为 `32x32`。
+- 新增 `clean_diffusion/cfm.py` 单文件 Consistency Flow Matching baseline：模型主输出仍为 velocity，endpoint 由 `x0_hat=x_t+(1-t)*v_theta(x_t,t)` 推导，loss 为 velocity MSE + endpoint consistency + boundary。
+- 完成 `cfm_smoke` 1 step 训练：step 1 loss 为 `1.4079`，checkpoint 保存到 `checkpoints/cfm_smoke/step=000000001`。
+- 完成 `cfm_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.2961`。
+- 完成 CFM Euler 低步数采样验证：加载 `checkpoints/cfm_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/cfm_smoke/cfm_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
 
 ## 下次会话入口
 

@@ -119,3 +119,4 @@ v_target = x0 - x1
 - `clean_diffusion/fm.py`：已完成 Flow Matching + Euler + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
 - `clean_diffusion/rectified_flow.py`：已完成 Rectified Flow + RF Euler + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
 - `clean_diffusion/consistency.py`：已完成 teacher-free consistency + one-step CFG 单文件 baseline，并通过 train / resume / sample smoke test。
+- `clean_diffusion/cfm.py`：已完成 Consistency Flow Matching + CFM Euler + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
