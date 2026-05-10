@@ -1,0 +1,27 @@
+[project]
+name = "clean-diffusion"
+version = "0.1.0"
+description = "CleanRL-style research framework for diffusion, flow, and consistency image generation"
+requires-python = "==3.11.*"
+dependencies = [
+    "numpy",
+    "Pillow",
+    "matplotlib",
+    "tensorboard",
+    "tyro",
+    "torch==2.6.0+cu124",
+    "torchvision==0.21.0+cu124",
+    "clip @ git+https://github.com/openai/CLIP.git",
+]
+
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+torchvision = { index = "pytorch-cu124" }
