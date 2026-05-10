@@ -28,6 +28,10 @@
 - 完成 `rf_smoke` 1 step 训练：step 1 loss 为 `1.3920`，checkpoint 保存到 `checkpoints/rf_smoke/step=000000001`。
 - 完成 `rf_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `1.2235`。
 - 完成 RF Euler 低步数采样验证：加载 `checkpoints/rf_smoke/step=000000002` EMA，`steps=4`、`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/rf_smoke/rf_euler_cfg3.0_steps4_000_a_small_red_car.png`，尺寸为 `32x32`。
+- 新增 `clean_diffusion/consistency.py` 单文件 teacher-free consistency baseline：模型直接预测 endpoint `x0_hat`，同一条直线路径上不同时间的 endpoint 输出保持一致，并加 `f_theta(x0,t=1)≈x0` 数据端边界；EMA 是当前模型滑动平均目标，不是外部 pretrained teacher。
+- 完成 `consistency_smoke` 1 step 训练：step 1 loss 为 `0.4633`，checkpoint 保存到 `checkpoints/consistency_smoke/step=000000001`。
+- 完成 `consistency_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 optimizer、AMP scaler、EMA，step 2 loss 为 `0.4024`。
+- 完成 consistency one-step 采样验证：加载 `checkpoints/consistency_smoke/step=000000002` EMA，`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/consistency_smoke/consistency_cfg3.0_steps1_000_a_small_red_car.png`，尺寸为 `32x32`。
 
 ## 下次会话入口
 
