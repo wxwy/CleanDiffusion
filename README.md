@@ -121,3 +121,4 @@ v_target = x0 - x1
 - `clean_diffusion/consistency.py`：已完成 teacher-free consistency + one-step CFG 单文件 baseline，并通过 train / resume / sample smoke test。
 - `clean_diffusion/cfm.py`：已完成 Consistency Flow Matching + CFM Euler + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
 - `clean_diffusion/dmd_lite.py`：已完成 DMD-lite one-step student distillation 单文件 baseline，并通过 train / resume / sample smoke test。
+- `clean_diffusion/dmd2.py`：已完成 DMD2-style teaching experiment 单文件 baseline，并通过 train / resume / sample smoke test。

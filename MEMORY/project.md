@@ -69,6 +69,10 @@
 - 已新增 `clean_diffusion/dmd_lite.py` 单文件 DMD-lite baseline，student 一步学习已有 CFM teacher 的生成 endpoint，不包含 adversarial distribution matching。
 - `clean_diffusion/dmd_lite.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 one-step 采样 smoke test。
 - `dmd_lite_smoke` 验证产物：`checkpoints/dmd_lite_smoke/step=000000002`、`checkpoints/dmd_lite_smoke/metrics.jsonl`、TensorBoard events、`samples/dmd_lite_smoke/dmd_lite_cfg3.0_steps1_000_a_small_red_car.png`。
+- 已新增 `clean_diffusion/dmd2.py` 单文件 DMD2-style 教学实验，包含 fake score model、PatchDiscriminator、score-delta surrogate loss 和 GAN proxy。
+- `clean_diffusion/dmd2.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 one-step 采样 smoke test；resume 已验证 fake score / discriminator 及其优化器可恢复。
+- `dmd2_smoke` 验证产物：`checkpoints/dmd2_smoke/step=000000002`、`checkpoints/dmd2_smoke/metrics.jsonl`、TensorBoard events、`samples/dmd2_smoke/dmd2_cfg3.0_steps1_000_a_small_red_car.png`。
+- 当前规划的阶段 0 到阶段 6 已完成单文件实现和 smoke test。
 
 ## 工程约束
 

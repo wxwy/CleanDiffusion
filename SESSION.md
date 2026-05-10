@@ -40,6 +40,11 @@
 - 使用 `checkpoints/cfm_smoke` 作为 teacher 完成 `dmd_lite_smoke` 1 step 训练：step 1 loss 为 `1.0049`，checkpoint 保存到 `checkpoints/dmd_lite_smoke/step=000000001`。
 - 完成 `dmd_lite_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 teacher EMA、student optimizer、AMP scaler、student EMA，step 2 loss 为 `1.0234`。
 - 完成 DMD-lite one-step 采样验证：加载 `checkpoints/dmd_lite_smoke/step=000000002` EMA，`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/dmd_lite_smoke/dmd_lite_cfg3.0_steps1_000_a_small_red_car.png`，尺寸为 `32x32`。
+- 新增 `clean_diffusion/dmd2.py` 单文件 DMD2-style 教学实验：在 DMD-lite 基础上加入 fake score model、PatchDiscriminator、score-delta surrogate loss 和 GAN proxy；这是教学骨架，不声明完整论文复现。
+- 使用 `checkpoints/cfm_smoke` 作为 teacher 完成 `dmd2_smoke` 1 step 训练：step 1 loss 为 `0.0699`，checkpoint 保存到 `checkpoints/dmd2_smoke/step=000000001`。
+- 完成 `dmd2_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 teacher EMA、student optimizer、AMP scaler、student EMA、fake_score_model、discriminator、fake_optimizer、discriminator_optimizer，step 2 loss 为 `0.0706`。
+- 完成 DMD2-style one-step 采样验证：加载 `checkpoints/dmd2_smoke/step=000000002` EMA，`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/dmd2_smoke/dmd2_cfg3.0_steps1_000_a_small_red_car.png`，尺寸为 `32x32`。
+- 阶段 0 到阶段 6 的规划单文件算法均已实现并完成 smoke test：DDPM、FM、Rectified Flow、Teacher-free Consistency、CFM、DMD-lite、DMD2-style。
 
 ## 下次会话入口
 
