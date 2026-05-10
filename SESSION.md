@@ -45,11 +45,19 @@
 - 完成 `dmd2_smoke` resume 验证：从 `step=000000001` 继续到 `step=000000002`，成功加载 teacher EMA、student optimizer、AMP scaler、student EMA、fake_score_model、discriminator、fake_optimizer、discriminator_optimizer，step 2 loss 为 `0.0706`。
 - 完成 DMD2-style one-step 采样验证：加载 `checkpoints/dmd2_smoke/step=000000002` EMA，`CFG=3.0`、prompt 为 `a small red car`，图片保存到 `samples/dmd2_smoke/dmd2_cfg3.0_steps1_000_a_small_red_car.png`，尺寸为 `32x32`。
 - 阶段 0 到阶段 6 的规划单文件算法均已实现并完成 smoke test：DDPM、FM、Rectified Flow、Teacher-free Consistency、CFM、DMD-lite、DMD2-style。
+- 从系统学习 diffusion 的角度新增第一批教学补充：`docs/00_diffusion_learning_map.md`、`docs/01_experiment_matrix.md`、`clean_diffusion/toy_fm_2d.py`。
+- `docs/00_diffusion_learning_map.md` 用学习顺序串联 DDPM、FM、RF、Consistency、CFM、DMD-lite、DMD2-style，强调先看 2D toy，再读图像版单文件算法。
+- `docs/01_experiment_matrix.md` 记录最小可运行、采样器对比、CFG 对比、学习曲线对比和失败模式记录模板。
+- `clean_diffusion/toy_fm_2d.py` 是二维 Flow Matching 端到端教学脚本，包含配置、数据分布、MLP、FM objective、Euler sampler、train/sample、checkpoint 和可视化。
+- 完成 `toy_fm_2d.py` 静态检查：`python -m py_compile clean_diffusion/toy_fm_2d.py` 通过。
+- 完成 `toy_fm_2d_smoke` 训练验证：`max_steps=2`、`batch_size=64`、`hidden_dim=32`、`depth=2`，step 1 loss 为 `2.493605`，step 2 loss 为 `2.739242`。
+- 完成 `toy_fm_2d_smoke` resume 验证：从 `outputs/toy_fm_2d_smoke/last.pt` 恢复到 step 3，step 3 loss 为 `2.468290`。
+- 完成 `toy_fm_2d.py` sample 验证：加载 `outputs/toy_fm_2d_smoke/last.pt`，`steps=4`、`num_points=128`，输出保存到 `outputs/toy_fm_2d_smoke/sample_check`。
 
 ## 下次会话入口
 
 1. 先读取 `AGENTS.md`、`SESSION.md`、`TODO.md`。
 2. 长期项目事实查看 `MEMORY/project.md`。
 3. 代码改动前检查当前文件结构与 git 状态。
-4. 第一阶段不要直接进入 FM/CFM，实现范围控制在 `clean_diffusion/ddpm.py` 单文件 DDPM baseline。
+4. 后续学习补充优先保持文档或单文件 toy 形态，不恢复深层框架结构。
 5. 不要默认创建 `objectives/`、`samplers/`、`training/` 等深层包结构。

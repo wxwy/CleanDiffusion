@@ -73,6 +73,8 @@
 - `clean_diffusion/dmd2.py` 已通过静态语法检查、轻量 CLI help 检查、1 step 训练、resume 和 one-step 采样 smoke test；resume 已验证 fake score / discriminator 及其优化器可恢复。
 - `dmd2_smoke` 验证产物：`checkpoints/dmd2_smoke/step=000000002`、`checkpoints/dmd2_smoke/metrics.jsonl`、TensorBoard events、`samples/dmd2_smoke/dmd2_cfg3.0_steps1_000_a_small_red_car.png`。
 - 当前规划的阶段 0 到阶段 6 已完成单文件实现和 smoke test。
+- 已新增系统学习补充第一批内容：`docs/00_diffusion_learning_map.md`、`docs/01_experiment_matrix.md`、`clean_diffusion/toy_fm_2d.py`。
+- `toy_fm_2d.py` 用二维 mixture 数据展示 Flow Matching 的统一路径、速度目标和 Euler sampler，作为学习图像版 `fm.py` 前的可视化入口。
 
 ## 工程约束
 

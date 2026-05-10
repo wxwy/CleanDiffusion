@@ -122,3 +122,24 @@ v_target = x0 - x1
 - `clean_diffusion/cfm.py`：已完成 Consistency Flow Matching + CFM Euler + CFG 单文件 baseline，并通过 train / resume / sample smoke test。
 - `clean_diffusion/dmd_lite.py`：已完成 DMD-lite one-step student distillation 单文件 baseline，并通过 train / resume / sample smoke test。
 - `clean_diffusion/dmd2.py`：已完成 DMD2-style teaching experiment 单文件 baseline，并通过 train / resume / sample smoke test。
+
+## 系统学习入口
+
+从系统学习 diffusion 的角度，建议先读：
+
+- `docs/00_diffusion_learning_map.md`：DDPM / FM / RF / Consistency / CFM / DMD 的学习顺序和概念关系。
+- `docs/01_experiment_matrix.md`：最小 smoke test、采样器对比、CFG 对比和失败模式记录模板。
+- `clean_diffusion/toy_fm_2d.py`：二维 Flow Matching toy，用可视化方式理解 `x_t`、velocity 和 Euler sampler。
+
+2D toy 运行示例：
+
+```bash
+python clean_diffusion/toy_fm_2d.py train \
+  --run-name toy_fm_2d_smoke \
+  --max-steps 200 \
+  --batch-size 512
+
+python clean_diffusion/toy_fm_2d.py sample \
+  --ckpt outputs/toy_fm_2d_smoke/last.pt \
+  --steps 32
+```

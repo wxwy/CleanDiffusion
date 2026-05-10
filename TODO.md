@@ -29,6 +29,19 @@
 - [x] 阶段 5：`clean_diffusion/dmd_lite.py`。
 - [x] 阶段 6：`clean_diffusion/dmd2.py` DMD2-style experiments。
 
+## 系统学习补充
+
+- [x] 新增 diffusion 系统学习地图：`docs/00_diffusion_learning_map.md`。
+- [x] 新增教学实验矩阵：`docs/01_experiment_matrix.md`。
+- [x] 新增二维 Flow Matching toy：`clean_diffusion/toy_fm_2d.py`。
+- [ ] 补充 DDPM 参数化对比：epsilon / x0 / v / score。
+- [ ] 补充 sampler 对比笔记：DDPM / DDIM / Euler / Heun / DPM-Solver-lite。
+- [ ] 补充 noise schedule 与 time schedule 教学笔记。
+- [ ] 补充模型结构笔记：UNet、time embedding、attention、conditioning。
+- [ ] 补充 latent diffusion 教学版本。
+- [ ] 补充 evaluation 笔记：FID、CLIP score、precision/recall、人工检查表。
+- [ ] 补充失败样例库：记录命令、现象、判断依据和下一步。
+
 ## 组织约束
 
 - [ ] 不默认创建 `objectives/`、`samplers/`、`training/` 等深层模块。
